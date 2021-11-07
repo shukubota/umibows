@@ -1,6 +1,6 @@
 function Header() {
   return (
-    <div>
+    <div className="bg-blue-400">
       <div>
         Umibows
       </div>
