@@ -10,9 +10,14 @@ const Home: NextPage = (props) => {
       <MetaHeader />
       <Header />
       <main>
-        <h1>
-          top
-        </h1>
+        <div className="bg-gray-200 h-full">
+          <h1>
+            top
+          </h1>
+          <div className="bg-red-500">
+            タイトル副題
+          </div>
+        </div>
       </main>
       <Footer />
     </div>
