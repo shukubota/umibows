@@ -1,0 +1,178 @@
+
+type StarndartCard @aws_iam @aws_api_key {
+  id: ID!
+  title: String
+  desc1: String
+  desc2: String
+  image_url: String
+  imagePath: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelStarndartCardConnection @aws_api_key @aws_iam {
+  items: [StarndartCard]!
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelStarndartCardFilterInput {
+  id: ModelIDInput
+  title: ModelStringInput
+  desc1: ModelStringInput
+  desc2: ModelStringInput
+  image_url: ModelStringInput
+  imagePath: ModelStringInput
+  and: [ModelStarndartCardFilterInput]
+  or: [ModelStarndartCardFilterInput]
+  not: ModelStarndartCardFilterInput
+}
+
+type Query {
+  getStarndartCard(id: ID!): StarndartCard @aws_api_key @aws_iam
+  listStarndartCards(filter: ModelStarndartCardFilterInput, limit: Int, nextToken: String): ModelStarndartCardConnection @aws_api_key @aws_iam
+  syncStarndartCards(filter: ModelStarndartCardFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelStarndartCardConnection @aws_api_key @aws_iam
+}
+
+input ModelStarndartCardConditionInput {
+  title: ModelStringInput
+  desc1: ModelStringInput
+  desc2: ModelStringInput
+  image_url: ModelStringInput
+  imagePath: ModelStringInput
+  and: [ModelStarndartCardConditionInput]
+  or: [ModelStarndartCardConditionInput]
+  not: ModelStarndartCardConditionInput
+}
+
+input CreateStarndartCardInput {
+  id: ID
+  title: String
+  desc1: String
+  desc2: String
+  image_url: String
+  imagePath: String
+  _version: Int
+}
+
+input UpdateStarndartCardInput {
+  id: ID!
+  title: String
+  desc1: String
+  desc2: String
+  image_url: String
+  imagePath: String
+  _version: Int
+}
+
+input DeleteStarndartCardInput {
+  id: ID!
+  _version: Int
+}
+
+type Mutation {
+  createStarndartCard(input: CreateStarndartCardInput!, condition: ModelStarndartCardConditionInput): StarndartCard @aws_api_key @aws_iam
+  updateStarndartCard(input: UpdateStarndartCardInput!, condition: ModelStarndartCardConditionInput): StarndartCard @aws_api_key @aws_iam
+  deleteStarndartCard(input: DeleteStarndartCardInput!, condition: ModelStarndartCardConditionInput): StarndartCard @aws_api_key @aws_iam
+}
+
+type Subscription {
+  onCreateStarndartCard: StarndartCard @aws_subscribe(mutations: ["createStarndartCard"]) @aws_api_key @aws_iam
+  onUpdateStarndartCard: StarndartCard @aws_subscribe(mutations: ["updateStarndartCard"]) @aws_api_key @aws_iam
+  onDeleteStarndartCard: StarndartCard @aws_subscribe(mutations: ["deleteStarndartCard"]) @aws_api_key @aws_iam
+}
+
