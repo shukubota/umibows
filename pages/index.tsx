@@ -15,7 +15,7 @@ const Home: NextPage = (props) => {
             top
           </h1>
           <div className="bg-red-500">
-            タイトル副題
+            subtitle
           </div>
         </div>
       </main>
