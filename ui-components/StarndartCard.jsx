@@ -6,22 +6,40 @@
 
 /* eslint-disable */
 import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Flex, Image, Text } from "@aws-amplify/ui-react";
 export default function StarndartCard(props) {
-  const { starndartCard, overrides, ...rest } = props;
+  const {
+    starndartCard,
+    imagePath = "https://www.nmrevolution.org/blog2/wp-content/uploads/2018/10/181016-all-in-one-seo01.png",
+    title = "\u672A\u8A2D\u5B9A",
+    overrides,
+    ...rest
+  } = props;
+  const imageOnClick = useNavigateAction({
+    target: "_blank",
+    type: "url",
+    url: "",
+  });
+  const fourbdsThreebaTwoCommaFiveThreeZerosqftActiveOnClick =
+    useNavigateAction({ target: "_blank", type: "url", url: "" });
+  const eightThreeTwoThreeFourthAveCommaSeattleCommaWANineEightOneTwoTwoOnClick =
+    useNavigateAction({ target: "_blank", type: "url", url: imagePath });
   return (
     <Flex
       gap="0"
       direction="column"
-      width="320px"
+      width="210px"
       justifyContent="center"
       alignItems="center"
       overflow="hidden"
       position="relative"
       borderRadius="20px"
       padding="0px 0px 0px 0px"
-      backgroundColor="rgba(255,255,255,1)"
+      backgroundColor="rgba(239,240,240,1)"
       {...rest}
       {...getOverrideProps(overrides, "StarndartCard")}
     >
@@ -32,7 +50,10 @@ export default function StarndartCard(props) {
         objectFit="cover"
         position="relative"
         padding="0px 0px 0px 0px"
-        src={starndartCard?.image_url}
+        src={imagePath}
+        onClick={() => {
+          imageOnClick();
+        }}
         {...getOverrideProps(overrides, "image")}
       ></Image>
       <Flex
@@ -71,7 +92,7 @@ export default function StarndartCard(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children={starndartCard?.title}
+            children={title}
             {...getOverrideProps(overrides, "$99 USD")}
           ></Text>
           <Text
@@ -91,7 +112,10 @@ export default function StarndartCard(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="4bds 3 ba 2,530 sqft - Active"
+            children={starndartCard?.title}
+            onClick={() => {
+              fourbdsThreebaTwoCommaFiveThreeZerosqftActiveOnClick();
+            }}
             {...getOverrideProps(overrides, "4bds 3 ba 2,530 sqft - Active")}
           ></Text>
           <Text
@@ -110,7 +134,10 @@ export default function StarndartCard(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="832 34th Ave, Seattle, WA 98122"
+            children={imagePath}
+            onClick={() => {
+              eightThreeTwoThreeFourthAveCommaSeattleCommaWANineEightOneTwoTwoOnClick();
+            }}
             {...getOverrideProps(overrides, "832 34th Ave, Seattle, WA 98122")}
           ></Text>
         </Flex>

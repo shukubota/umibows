@@ -21,11 +21,8 @@ export default function StarndartCardCollection(props) {
   const items = itemsProp !== undefined ? itemsProp : itemsDataStore;
   return (
     <Collection
-      type="grid"
-      searchPlaceholder="Search..."
-      templateColumns="1fr 1fr"
-      autoFlow="row"
-      alignItems="center"
+      type="list"
+      direction="column"
       justifyContent="stretch"
       items={items || []}
       {...rest}
@@ -33,9 +30,7 @@ export default function StarndartCardCollection(props) {
     >
       {(item, index) => (
         <StarndartCard
-          height="auto"
-          width="auto"
-          margin="0 1rem 1rem 1rem"
+          starndartCard={item}
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
         ></StarndartCard>

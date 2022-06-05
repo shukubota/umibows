@@ -5,11 +5,13 @@
  **************************************************************************/
 
 import React from "react";
-import { StarndartCard } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
+import { StarndartCard } from "../models";
 import { FlexProps } from "@aws-amplify/ui-react";
 export declare type StarndartCardProps = React.PropsWithChildren<Partial<FlexProps> & {
     starndartCard?: StarndartCard;
+    imagePath?: String;
+    title?: String;
 } & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
