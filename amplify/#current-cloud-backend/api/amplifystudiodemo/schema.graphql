@@ -1,3 +1,10 @@
+type SampleCard @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  team_name: String
+  image_url: String
+}
+
 type StarndartCard @model @auth(rules: [{allow: public}]) {
   id: ID!
   title: String

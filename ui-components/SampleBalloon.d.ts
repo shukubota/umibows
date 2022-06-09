@@ -6,14 +6,10 @@
 
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { CollectionProps } from "@aws-amplify/ui-react";
-export declare type StarndartCardCollectionProps = React.PropsWithChildren<Partial<CollectionProps<any>> & {
-    items?: any[];
-    overrideItems?: ({ item: any, index: number }: {
-        item: any;
-        index: any;
-    }) => Record<string, string>;
+import { ViewProps } from "@aws-amplify/ui-react";
+export declare type SampleBalloonProps = React.PropsWithChildren<Partial<ViewProps> & {
+    value?: String;
 } & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function StarndartCardCollection(props: StarndartCardCollectionProps): React.ReactElement;
+export default function SampleBalloon(props: SampleBalloonProps): React.ReactElement;

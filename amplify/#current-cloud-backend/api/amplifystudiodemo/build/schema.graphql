@@ -1,4 +1,16 @@
 
+type SampleCard @aws_iam @aws_api_key {
+  id: ID!
+  name: String
+  team_name: String
+  image_url: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+}
+
 type StarndartCard @aws_iam @aws_api_key {
   id: ID!
   title: String
@@ -104,6 +116,79 @@ enum ModelSortDirection {
   DESC
 }
 
+type ModelSampleCardConnection @aws_api_key @aws_iam {
+  items: [SampleCard]!
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelSampleCardFilterInput {
+  id: ModelIDInput
+  name: ModelStringInput
+  team_name: ModelStringInput
+  image_url: ModelStringInput
+  and: [ModelSampleCardFilterInput]
+  or: [ModelSampleCardFilterInput]
+  not: ModelSampleCardFilterInput
+}
+
+type Query {
+  getSampleCard(id: ID!): SampleCard @aws_api_key @aws_iam
+  listSampleCards(filter: ModelSampleCardFilterInput, limit: Int, nextToken: String): ModelSampleCardConnection @aws_api_key @aws_iam
+  syncSampleCards(filter: ModelSampleCardFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelSampleCardConnection @aws_api_key @aws_iam
+  getStarndartCard(id: ID!): StarndartCard @aws_api_key @aws_iam
+  listStarndartCards(filter: ModelStarndartCardFilterInput, limit: Int, nextToken: String): ModelStarndartCardConnection @aws_api_key @aws_iam
+  syncStarndartCards(filter: ModelStarndartCardFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelStarndartCardConnection @aws_api_key @aws_iam
+}
+
+input ModelSampleCardConditionInput {
+  name: ModelStringInput
+  team_name: ModelStringInput
+  image_url: ModelStringInput
+  and: [ModelSampleCardConditionInput]
+  or: [ModelSampleCardConditionInput]
+  not: ModelSampleCardConditionInput
+}
+
+input CreateSampleCardInput {
+  id: ID
+  name: String
+  team_name: String
+  image_url: String
+  _version: Int
+}
+
+input UpdateSampleCardInput {
+  id: ID!
+  name: String
+  team_name: String
+  image_url: String
+  _version: Int
+}
+
+input DeleteSampleCardInput {
+  id: ID!
+  _version: Int
+}
+
+type Mutation {
+  createSampleCard(input: CreateSampleCardInput!, condition: ModelSampleCardConditionInput): SampleCard @aws_api_key @aws_iam
+  updateSampleCard(input: UpdateSampleCardInput!, condition: ModelSampleCardConditionInput): SampleCard @aws_api_key @aws_iam
+  deleteSampleCard(input: DeleteSampleCardInput!, condition: ModelSampleCardConditionInput): SampleCard @aws_api_key @aws_iam
+  createStarndartCard(input: CreateStarndartCardInput!, condition: ModelStarndartCardConditionInput): StarndartCard @aws_api_key @aws_iam
+  updateStarndartCard(input: UpdateStarndartCardInput!, condition: ModelStarndartCardConditionInput): StarndartCard @aws_api_key @aws_iam
+  deleteStarndartCard(input: DeleteStarndartCardInput!, condition: ModelStarndartCardConditionInput): StarndartCard @aws_api_key @aws_iam
+}
+
+type Subscription {
+  onCreateSampleCard: SampleCard @aws_subscribe(mutations: ["createSampleCard"]) @aws_api_key @aws_iam
+  onUpdateSampleCard: SampleCard @aws_subscribe(mutations: ["updateSampleCard"]) @aws_api_key @aws_iam
+  onDeleteSampleCard: SampleCard @aws_subscribe(mutations: ["deleteSampleCard"]) @aws_api_key @aws_iam
+  onCreateStarndartCard: StarndartCard @aws_subscribe(mutations: ["createStarndartCard"]) @aws_api_key @aws_iam
+  onUpdateStarndartCard: StarndartCard @aws_subscribe(mutations: ["updateStarndartCard"]) @aws_api_key @aws_iam
+  onDeleteStarndartCard: StarndartCard @aws_subscribe(mutations: ["deleteStarndartCard"]) @aws_api_key @aws_iam
+}
+
 type ModelStarndartCardConnection @aws_api_key @aws_iam {
   items: [StarndartCard]!
   nextToken: String
@@ -120,12 +205,6 @@ input ModelStarndartCardFilterInput {
   and: [ModelStarndartCardFilterInput]
   or: [ModelStarndartCardFilterInput]
   not: ModelStarndartCardFilterInput
-}
-
-type Query {
-  getStarndartCard(id: ID!): StarndartCard @aws_api_key @aws_iam
-  listStarndartCards(filter: ModelStarndartCardFilterInput, limit: Int, nextToken: String): ModelStarndartCardConnection @aws_api_key @aws_iam
-  syncStarndartCards(filter: ModelStarndartCardFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelStarndartCardConnection @aws_api_key @aws_iam
 }
 
 input ModelStarndartCardConditionInput {
@@ -162,17 +241,5 @@ input UpdateStarndartCardInput {
 input DeleteStarndartCardInput {
   id: ID!
   _version: Int
-}
-
-type Mutation {
-  createStarndartCard(input: CreateStarndartCardInput!, condition: ModelStarndartCardConditionInput): StarndartCard @aws_api_key @aws_iam
-  updateStarndartCard(input: UpdateStarndartCardInput!, condition: ModelStarndartCardConditionInput): StarndartCard @aws_api_key @aws_iam
-  deleteStarndartCard(input: DeleteStarndartCardInput!, condition: ModelStarndartCardConditionInput): StarndartCard @aws_api_key @aws_iam
-}
-
-type Subscription {
-  onCreateStarndartCard: StarndartCard @aws_subscribe(mutations: ["createStarndartCard"]) @aws_api_key @aws_iam
-  onUpdateStarndartCard: StarndartCard @aws_subscribe(mutations: ["updateStarndartCard"]) @aws_api_key @aws_iam
-  onDeleteStarndartCard: StarndartCard @aws_subscribe(mutations: ["deleteStarndartCard"]) @aws_api_key @aws_iam
 }
 

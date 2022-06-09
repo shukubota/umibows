@@ -43,19 +43,37 @@
     "referencetotransformerrootstackGraphQLAPI20497F53ApiId": {
       "Type": "String"
     },
-    "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name": {
-      "Type": "String"
-    },
     "referencetotransformerrootstackS3DeploymentBucket7592718ARef": {
       "Type": "String"
     },
     "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref": {
       "Type": "String"
     },
+    "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardQuerygetSampleCardauth0FunctionQuerygetSampleCardauth0FunctionAppSyncFunction905375C2FunctionId": {
+      "Type": "String"
+    },
+    "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardQuerygetSampleCardpostAuth0FunctionQuerygetSampleCardpostAuth0FunctionAppSyncFunction83891B62FunctionId": {
+      "Type": "String"
+    },
     "referencetotransformerrootstackauthRoleNameFB872D50Ref": {
       "Type": "String"
     },
     "referencetotransformerrootstackunauthRoleName49F3C1FERef": {
+      "Type": "String"
+    },
+    "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardMutationcreateSampleCardinit0FunctionMutationcreateSampleCardinit0FunctionAppSyncFunction6C75378FFunctionId": {
+      "Type": "String"
+    },
+    "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardMutationcreateSampleCardauth0FunctionMutationcreateSampleCardauth0FunctionAppSyncFunction05B47AFDFunctionId": {
+      "Type": "String"
+    },
+    "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardMutationupdateSampleCardinit0FunctionMutationupdateSampleCardinit0FunctionAppSyncFunction8465CCC5FunctionId": {
+      "Type": "String"
+    },
+    "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardSubscriptiononCreateSampleCardauth0FunctionSubscriptiononCreateSampleCardauth0FunctionAppSyncFunction900FD2CFFunctionId": {
+      "Type": "String"
+    },
+    "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardSubscriptionOnCreateSampleCardDataResolverFnSubscriptionOnCreateSampleCardDataResolverFnAppSyncFunctionBA6BB3A5FunctionId": {
       "Type": "String"
     }
   },
@@ -425,66 +443,6 @@
         "StarndartCardIAMRole3DA34DEF"
       ]
     },
-    "QuerygetStarndartCardauth0FunctionQuerygetStarndartCardauth0FunctionAppSyncFunction74817E26": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "QuerygetStarndartCardauth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Query.getStarndartCard.auth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "QuerygetStarndartCardpostAuth0FunctionQuerygetStarndartCardpostAuth0FunctionAppSyncFunctionDC37D155": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "QuerygetStarndartCardpostAuth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Query.getStarndartCard.postAuth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
     "QueryGetStarndartCardDataResolverFnQueryGetStarndartCardDataResolverFnAppSyncFunction4BCF6FA6": {
       "Type": "AWS::AppSync::FunctionConfiguration",
       "Properties": {
@@ -552,16 +510,10 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "QuerygetStarndartCardauth0FunctionQuerygetStarndartCardauth0FunctionAppSyncFunction74817E26",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardQuerygetSampleCardauth0FunctionQuerygetSampleCardauth0FunctionAppSyncFunction905375C2FunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "QuerygetStarndartCardpostAuth0FunctionQuerygetStarndartCardpostAuth0FunctionAppSyncFunctionDC37D155",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardQuerygetSampleCardpostAuth0FunctionQuerygetSampleCardpostAuth0FunctionAppSyncFunction83891B62FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -673,16 +625,10 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "QuerygetStarndartCardauth0FunctionQuerygetStarndartCardauth0FunctionAppSyncFunction74817E26",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardQuerygetSampleCardauth0FunctionQuerygetSampleCardauth0FunctionAppSyncFunction905375C2FunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "QuerygetStarndartCardpostAuth0FunctionQuerygetStarndartCardpostAuth0FunctionAppSyncFunctionDC37D155",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardQuerygetSampleCardpostAuth0FunctionQuerygetSampleCardpostAuth0FunctionAppSyncFunction83891B62FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -794,16 +740,10 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "QuerygetStarndartCardauth0FunctionQuerygetStarndartCardauth0FunctionAppSyncFunction74817E26",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardQuerygetSampleCardauth0FunctionQuerygetSampleCardauth0FunctionAppSyncFunction905375C2FunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "QuerygetStarndartCardpostAuth0FunctionQuerygetStarndartCardpostAuth0FunctionAppSyncFunctionDC37D155",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardQuerygetSampleCardpostAuth0FunctionQuerygetSampleCardpostAuth0FunctionAppSyncFunction83891B62FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -846,66 +786,6 @@
           ]
         },
         "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
-      }
-    },
-    "MutationcreateStarndartCardinit0FunctionMutationcreateStarndartCardinit0FunctionAppSyncFunction5682C66D": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "MutationcreateStarndartCardinit0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Mutation.createStarndartCard.init.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "MutationcreateStarndartCardauth0FunctionMutationcreateStarndartCardauth0FunctionAppSyncFunction9C9380BF": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "MutationcreateStarndartCardauth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Mutation.createStarndartCard.auth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
       }
     },
     "MutationCreateStarndartCardDataResolverFnMutationCreateStarndartCardDataResolverFnAppSyncFunction8419480D": {
@@ -975,22 +855,13 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "MutationcreateStarndartCardinit0FunctionMutationcreateStarndartCardinit0FunctionAppSyncFunction5682C66D",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardMutationcreateSampleCardinit0FunctionMutationcreateSampleCardinit0FunctionAppSyncFunction6C75378FFunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "MutationcreateStarndartCardauth0FunctionMutationcreateStarndartCardauth0FunctionAppSyncFunction9C9380BF",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardMutationcreateSampleCardauth0FunctionMutationcreateSampleCardauth0FunctionAppSyncFunction05B47AFDFunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "QuerygetStarndartCardpostAuth0FunctionQuerygetStarndartCardpostAuth0FunctionAppSyncFunctionDC37D155",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardQuerygetSampleCardpostAuth0FunctionQuerygetSampleCardpostAuth0FunctionAppSyncFunction83891B62FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -1033,36 +904,6 @@
           ]
         },
         "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
-      }
-    },
-    "MutationupdateStarndartCardinit0FunctionMutationupdateStarndartCardinit0FunctionAppSyncFunctionEFC2F750": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "MutationupdateStarndartCardinit0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Mutation.updateStarndartCard.init.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
       }
     },
     "MutationupdateStarndartCardauth0FunctionMutationupdateStarndartCardauth0FunctionAppSyncFunction847B670E": {
@@ -1183,10 +1024,7 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "MutationupdateStarndartCardinit0FunctionMutationupdateStarndartCardinit0FunctionAppSyncFunctionEFC2F750",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardMutationupdateSampleCardinit0FunctionMutationupdateSampleCardinit0FunctionAppSyncFunction8465CCC5FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -1195,10 +1033,7 @@
               ]
             },
             {
-              "Fn::GetAtt": [
-                "QuerygetStarndartCardpostAuth0FunctionQuerygetStarndartCardpostAuth0FunctionAppSyncFunctionDC37D155",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardQuerygetSampleCardpostAuth0FunctionQuerygetSampleCardpostAuth0FunctionAppSyncFunction83891B62FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -1367,10 +1202,7 @@
               ]
             },
             {
-              "Fn::GetAtt": [
-                "QuerygetStarndartCardpostAuth0FunctionQuerygetStarndartCardpostAuth0FunctionAppSyncFunctionDC37D155",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardQuerygetSampleCardpostAuth0FunctionQuerygetSampleCardpostAuth0FunctionAppSyncFunction83891B62FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -1415,81 +1247,6 @@
         "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
       }
     },
-    "SubscriptiononCreateStarndartCardauth0FunctionSubscriptiononCreateStarndartCardauth0FunctionAppSyncFunction4CFE60DD": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "SubscriptiononCreateStarndartCardauth0Function",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onCreateStarndartCard.auth.1.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplate": "$util.toJson({})"
-      }
-    },
-    "SubscriptionOnCreateStarndartCardDataResolverFnSubscriptionOnCreateStarndartCardDataResolverFnAppSyncFunction3BBF7E47": {
-      "Type": "AWS::AppSync::FunctionConfiguration",
-      "Properties": {
-        "ApiId": {
-          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
-        },
-        "DataSourceName": {
-          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
-        },
-        "FunctionVersion": "2018-05-29",
-        "Name": "SubscriptionOnCreateStarndartCardDataResolverFn",
-        "RequestMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onCreateStarndartCard.req.vtl"
-            ]
-          ]
-        },
-        "ResponseMappingTemplateS3Location": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
-              },
-              "/",
-              {
-                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
-              },
-              "/resolvers/Subscription.onCreateStarndartCard.res.vtl"
-            ]
-          ]
-        }
-      }
-    },
     "SubscriptiononCreateStarndartCardResolver": {
       "Type": "AWS::AppSync::Resolver",
       "Properties": {
@@ -1502,22 +1259,13 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "SubscriptiononCreateStarndartCardauth0FunctionSubscriptiononCreateStarndartCardauth0FunctionAppSyncFunction4CFE60DD",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardSubscriptiononCreateSampleCardauth0FunctionSubscriptiononCreateSampleCardauth0FunctionAppSyncFunction900FD2CFFunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "QuerygetStarndartCardpostAuth0FunctionQuerygetStarndartCardpostAuth0FunctionAppSyncFunctionDC37D155",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardQuerygetSampleCardpostAuth0FunctionQuerygetSampleCardpostAuth0FunctionAppSyncFunction83891B62FunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "SubscriptionOnCreateStarndartCardDataResolverFnSubscriptionOnCreateStarndartCardDataResolverFnAppSyncFunction3BBF7E47",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardSubscriptionOnCreateSampleCardDataResolverFnSubscriptionOnCreateSampleCardDataResolverFnAppSyncFunctionBA6BB3A5FunctionId"
             }
           ]
         },
@@ -1564,22 +1312,13 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "SubscriptiononCreateStarndartCardauth0FunctionSubscriptiononCreateStarndartCardauth0FunctionAppSyncFunction4CFE60DD",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardSubscriptiononCreateSampleCardauth0FunctionSubscriptiononCreateSampleCardauth0FunctionAppSyncFunction900FD2CFFunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "QuerygetStarndartCardpostAuth0FunctionQuerygetStarndartCardpostAuth0FunctionAppSyncFunctionDC37D155",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardQuerygetSampleCardpostAuth0FunctionQuerygetSampleCardpostAuth0FunctionAppSyncFunction83891B62FunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "SubscriptionOnCreateStarndartCardDataResolverFnSubscriptionOnCreateStarndartCardDataResolverFnAppSyncFunction3BBF7E47",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardSubscriptionOnCreateSampleCardDataResolverFnSubscriptionOnCreateSampleCardDataResolverFnAppSyncFunctionBA6BB3A5FunctionId"
             }
           ]
         },
@@ -1626,22 +1365,13 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": [
-                "SubscriptiononCreateStarndartCardauth0FunctionSubscriptiononCreateStarndartCardauth0FunctionAppSyncFunction4CFE60DD",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardSubscriptiononCreateSampleCardauth0FunctionSubscriptiononCreateSampleCardauth0FunctionAppSyncFunction900FD2CFFunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "QuerygetStarndartCardpostAuth0FunctionQuerygetStarndartCardpostAuth0FunctionAppSyncFunctionDC37D155",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardQuerygetSampleCardpostAuth0FunctionQuerygetSampleCardpostAuth0FunctionAppSyncFunction83891B62FunctionId"
             },
             {
-              "Fn::GetAtt": [
-                "SubscriptionOnCreateStarndartCardDataResolverFnSubscriptionOnCreateStarndartCardDataResolverFnAppSyncFunction3BBF7E47",
-                "FunctionId"
-              ]
+              "Ref": "referencetotransformerrootstackSampleCardNestedStackSampleCardNestedStackResource6AEF93F3OutputstransformerrootstackSampleCardSubscriptionOnCreateSampleCardDataResolverFnSubscriptionOnCreateSampleCardDataResolverFnAppSyncFunctionBA6BB3A5FunctionId"
             }
           ]
         },

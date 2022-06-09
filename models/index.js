@@ -4,8 +4,9 @@ import { schema } from './schema';
 
 
 
-const { StarndartCard } = initSchema(schema);
+const { SampleCard, StarndartCard } = initSchema(schema);
 
 export {
+  SampleCard,
   StarndartCard
 };

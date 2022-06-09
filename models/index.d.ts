@@ -4,8 +4,23 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 
+type SampleCardMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
 type StarndartCardMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+export declare class SampleCard {
+  readonly id: string;
+  readonly name?: string | null;
+  readonly team_name?: string | null;
+  readonly image_url?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<SampleCard, SampleCardMetaData>);
+  static copyOf(source: SampleCard, mutator: (draft: MutableModel<SampleCard, SampleCardMetaData>) => MutableModel<SampleCard, SampleCardMetaData> | void): SampleCard;
 }
 
 export declare class StarndartCard {
