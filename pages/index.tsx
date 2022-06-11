@@ -4,7 +4,6 @@ import Footer from "../components/footer";
 import Header from "../components/header";
 
 const Home: NextPage = (props) => {
-  console.log({ props });
   return (
     <div>
       <MetaHeader />
