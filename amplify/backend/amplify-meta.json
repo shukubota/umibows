@@ -36,7 +36,7 @@
         "GraphQLAPIEndpointOutput": "https://wij6mzxfxzd4lbqcwxec3kdwga.appsync-api.us-east-2.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-gpa6d5p735aehjrysrb27i42we"
       },
-      "lastPushTimeStamp": "2022-06-09T06:39:39.794Z",
+      "lastPushTimeStamp": "2022-06-11T13:23:42.184Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifystudiodemo-staging-141305-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiamplifystudiodemo"

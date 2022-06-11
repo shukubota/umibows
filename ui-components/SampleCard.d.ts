@@ -9,7 +9,6 @@ import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { ViewProps } from "@aws-amplify/ui-react";
 export declare type SampleCardProps = React.PropsWithChildren<Partial<ViewProps> & {
     imageUrl?: String;
-    starCount?: Number;
     name?: String;
     teamName?: String;
 } & {

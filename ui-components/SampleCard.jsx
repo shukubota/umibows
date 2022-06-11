@@ -11,7 +11,6 @@ import { Image, Text, View } from "@aws-amplify/ui-react";
 export default function SampleCard(props) {
   const {
     imageUrl,
-    starCount,
     name = "no name",
     teamName = "no team",
     overrides,
